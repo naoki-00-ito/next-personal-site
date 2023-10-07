@@ -1,0 +1,47 @@
+// media queries
+
+$breakpoint-sm: 680px;
+$breakpoints: (
+  "xs": 374px,
+  "sm": 680px,
+  "md": 980px,
+  "lg": 1025px,
+  "xl": 1064px,
+  "xxl": 1340px,
+) !default;
+
+// min-width ------------
+// @include mq(min, md)
+// max-width ------------
+// @include mq(max, md)
+// between ------------
+// @include mq(bw, sm, md)
+@mixin mq($type, $bp1, $bp2: 0) {
+  @if ($type == min) {
+    @media screen and (min-width: #{map-get($breakpoints, $bp1)}) {
+      @content;
+    }
+  } @else if ($type == max) {
+    $width: map-get($breakpoints, $bp1);
+    $width: $width - 0.2px;
+    @media screen and (max-width: #{$width}) {
+      @content;
+    }
+  } @else if ($type == bw) {
+    $width: map-get($breakpoints, $bp2);
+    $width: $width - 0.2px;
+    @media screen and (min-width: #{map-get($breakpoints, $bp1)})
+        and (max-width: #{$width}) {
+      @content;
+    }
+  }
+}
+
+// min - max setting
+//- @include screen(***px,***px)
+@mixin screen($break-point-min, $break-point-max) {
+  @media print,
+    screen and (min-width: $break-point-min) and (max-width: $break-point-max - 0.2px) {
+    @content;
+  }
+}
