@@ -33,7 +33,7 @@ export default async function Articles() {
         {posts.map((post) => (
           <li key={post.slug}>
             <p>{post.frontmatter.date}</p>
-            <Link href={`/article/${post.slug}`}>{post.frontmatter.title}</Link>
+            <Link href={`/articles/${post.slug}`}>{post.frontmatter.title}</Link>
           </li>
         ))}
       </ul>
