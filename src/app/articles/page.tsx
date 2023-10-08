@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import AlticleList from '@/app/components/AlticleList';
-import { Articles } from '@/app/types/article';
+import AlticleList from '@/components/AlticleList';
+import { Articles } from '@/types/article';
 
 export default async function Articles() {
   // contentディレクトリ内のマークダウンファイル一覧を取得
