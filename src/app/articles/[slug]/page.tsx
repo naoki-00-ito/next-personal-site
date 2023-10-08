@@ -8,6 +8,7 @@ import rehypeStringify from 'rehype-stringify';
 import gfm from "remark-gfm";
 import rehypeHighlight from 'rehype-highlight';
 import 'highlight.js/styles/github-dark.css';
+import { TipList } from '@/app/components/TipList';
 
 export default async function Article({ params }) {
   const { slug } = params;
@@ -37,19 +38,13 @@ export default async function Article({ params }) {
         {date}
       </time>
 
-      <div className="c-tip">
-        {category}
-      </div>
+      <TipList
+        items={category}
+      />
 
-      <div className="c-tips">
-        {tags.map((tag: string) => {
-          return (
-            <div className="c-tip">
-              {tag}
-            </div>
-          )
-        })}
-      </div>
+      <TipList
+        items={tags}
+      />
 
       <div dangerouslySetInnerHTML={{ __html: contentHtml }} className='t-detail'></div>
     </div>

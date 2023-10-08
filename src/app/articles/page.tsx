@@ -1,18 +1,19 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import Link from 'next/link';
+import AlticleList from '@/app/components/AlticleList';
+import { Articles } from '@/app/types/article';
 
 export default async function Articles() {
   // contentディレクトリ内のマークダウンファイル一覧を取得
-  const postsDirectory = path.join(process.cwd(), 'content');
-  const fileNames = fs.readdirSync(postsDirectory);
+  const articlesDirectory = path.join(process.cwd(), 'content');
+  const fileNames = fs.readdirSync(articlesDirectory);
 
   // 各ファイルの中身を取得
-  const posts = await Promise.all(
+  const articles: Articles = await Promise.all(
     // 各ファイル情報を取得
     fileNames.map(async (fileName) => {
-      const filePath = path.join(postsDirectory, fileName);
+      const filePath = path.join(articlesDirectory, fileName);
       const fileContents = fs.readFileSync(filePath, 'utf8');
       const { data } = matter(fileContents);
 
@@ -22,21 +23,16 @@ export default async function Articles() {
         frontmatter: data,
       };
     })
-  ).then((posts) =>
+  ).then((articles) =>
     // 最新日付順に並び替え
-    posts.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
+    articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
   );
 
+  console.log(articles)
+
   return (
-    <div>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <p>{post.frontmatter.date}</p>
-            <Link href={`/articles/${post.slug}`}>{post.frontmatter.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <AlticleList
+      articles={articles}
+    />
   );
 }

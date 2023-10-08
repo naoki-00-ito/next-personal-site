@@ -1,7 +1,10 @@
 export type Article = {
-  title: string;
-  description: string;
-  category: string[];
-  tags: string[];
-  date: string;
+  slug: string;
+  frontmatter: {
+    [key: string]: string | string[];
+    ['category']: string[];
+    ['tags']: string[];
+  };
 };
+
+export type Articles = Article[];
