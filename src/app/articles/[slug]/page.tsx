@@ -3,7 +3,11 @@ import path from 'path';
 import matter from 'gray-matter';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
-import remarkHtml from 'remark-html';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+import gfm from "remark-gfm";
+import rehypeHighlight from 'rehype-highlight';
+import 'highlight.js/styles/github-dark.css';
 
 export default async function Article({ params }) {
   const { slug } = params;
@@ -14,7 +18,13 @@ export default async function Article({ params }) {
   const date = data.date;
   const category = data.category;
   const tags = data.tags;
-  const processedContent = await unified().use(remarkParse).use(remarkHtml).process(content);
+  const processedContent = await unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(gfm)
+    .use(rehypeHighlight)
+    .use(rehypeStringify)
+    .process(content);
   const contentHtml = processedContent.toString();
 
   // console.log(data);

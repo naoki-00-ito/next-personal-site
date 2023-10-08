@@ -15,12 +15,18 @@
     "eslint": "8.51.0",
     "eslint-config-next": "13.5.4",
     "gray-matter": "^4.0.3",
+    "highlightjs": "^9.16.2",
     "next": "13.5.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "rehype-highlight": "^7.0.0",
+    "rehype-stringify": "^10.0.0",
     "remark": "^15.0.1",
-    "remark-html": "^16.0.1",
-    "typescript": "5.2.2"
+    "remark-gfm": "^4.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.0.0",
+    "typescript": "5.2.2",
+    "unified": "^11.0.3"
   },
   "devDependencies": {
     "fs": "^0.0.1-security",
