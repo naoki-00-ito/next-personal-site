@@ -6,6 +6,8 @@ tags: [sentry,nuxt]
 date: '2023-07-16'
 ---
 
+## 目次
+
 ## Sentryとは
 
 https://sentry.io/welcome/

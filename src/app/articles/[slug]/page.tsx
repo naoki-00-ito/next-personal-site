@@ -3,7 +3,9 @@ import path from 'path';
 import matter from 'gray-matter';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
+import remarkToc from 'remark-toc';
 import remarkRehype from 'remark-rehype';
+import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
 import gfm from "remark-gfm";
 import rehypeHighlight from 'rehype-highlight';
@@ -21,7 +23,11 @@ export default async function Article({ params }) {
   const tags = data.tags;
   const processedContent = await unified()
     .use(remarkParse)
+    .use(remarkToc, {
+      heading: '目次',
+    })
     .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeSlug)
     .use(gfm)
     .use(rehypeHighlight)
     .use(rehypeStringify, { allowDangerousHtml: true })
