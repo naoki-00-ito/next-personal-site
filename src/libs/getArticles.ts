@@ -1,3 +1,4 @@
+import { ARTICLE_PAGE_SIZE, ARTICLE_DIR, ARTICLE_FILE_EXTENTION } from '@/env';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -10,7 +11,7 @@ type Props = {
 }
 
 export async function getArticles({ max, category, tag }: Props): Promise<Articles> {
-  const articlesDirectory = path.join(process.cwd(), 'content');
+  const articlesDirectory = path.join(process.cwd(), ARTICLE_DIR);
   const fileNames = fs.readdirSync(articlesDirectory);
 
   const articles: Articles = await Promise.all(
@@ -20,7 +21,7 @@ export async function getArticles({ max, category, tag }: Props): Promise<Articl
       const { data } = matter(fileContents);
 
       return {
-        slug: fileName.replace('.md', ''),
+        slug: fileName.replace(ARTICLE_FILE_EXTENTION, ''),
         frontmatter: data,
       };
     })

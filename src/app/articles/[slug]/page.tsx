@@ -1,3 +1,4 @@
+import { ARTICLE_DIR, ARTICLE_FILE_EXTENTION } from '@/env';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -14,7 +15,7 @@ import { TipList } from '@/components/TipList';
 
 export default async function Article({ params }) {
   const { slug } = params;
-  const filePath = path.join(process.cwd(), 'content', `${slug}.md`);
+  const filePath = path.join(process.cwd(), ARTICLE_DIR, `${slug}${ARTICLE_FILE_EXTENTION}`);
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContents);
   const title = data.title;
