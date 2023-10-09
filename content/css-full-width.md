@@ -13,23 +13,16 @@ date: '2023-03-16'
 ### HTML
 
 ```html
-<main class="l-main">
-  <div class="p-hoge">
-    <div class="p-hoge__bg">
-      <p class="p-hoge__text">texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
-    </div>
+<div class="p-hoge">
+  <div class="p-hoge__bg">
+    <p class="p-hoge__text">texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
   </div>
-</main>
+</div>
 ```
 
 ### CSS
 
 ```css
-.l-main {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .p-hoge {
   width: 100%;
@@ -43,15 +36,6 @@ date: '2023-03-16'
 ### 表示イメージ
 
 <style>
-.l-main {
-  width: 90%;
-  margin: 40px auto;
-  background-color: #00f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-}
 
 .p-hoge {
   width: 100%;
@@ -75,15 +59,13 @@ date: '2023-03-16'
 }
 </style>
 
-<main class="l-main">
-  <div class="p-hoge">
-    <div class="p-hoge__bg">
-      <p class="p-hoge__text">
+<div class="p-hoge">
+  <div class="p-hoge__bg">
+    <p class="p-hoge__text">
 texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-      </p>
-    </div>
+    </p>
   </div>
-</main>
+</div>
  
 ※青背景部分が`.l-main`, 赤背景部分が`p-hoge`
 
@@ -103,15 +85,13 @@ texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
 
 ## 下記のように背景が画面幅いっぱいになります
 
-<main class="l-main">
-  <div class="p-hoge">
-    <div class="p-hoge__bg p-hoge__bg--full">
-      <p class="p-hoge__text">
+<div class="p-hoge">
+  <div class="p-hoge__bg p-hoge__bg--full">
+    <p class="p-hoge__text">
 texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-      </p>
-    </div>
+    </p>
   </div>
-</main>
+</div>
 
 ## Sassを使う場合はmixinを作っておくと便利です
 
