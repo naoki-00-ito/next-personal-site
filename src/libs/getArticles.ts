@@ -25,7 +25,7 @@ export async function getArticles({ max, category, tag }: Props): Promise<Articl
       };
     })
   ).then((articles) => {
-    articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+    articles.sort((a, b) => new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1);
 
     // カテゴリが指定された場合は該当する記事のみをフィルタリング
     if (category) {
