@@ -1,0 +1,82 @@
+// base
+
+@use "../_foundation" as f;
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap");
+
+html {
+  color: f.$color-black;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 62.5%;
+  font-weight: f.$normal;
+  line-break: strict;
+  @include f.mq(max, xs) {
+    font-size: 56%;
+  }
+  -ms-overflow-x: hidden;
+  overflow-x: hidden;
+}
+
+body {
+  -ms-overflow-x: hidden;
+  overflow-x: hidden;
+}
+
+* {
+  line-height: 1.4;
+  font-size: 1.6rem;
+}
+
+a {
+  color: f.$color-black;
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: f.$transition;
+  cursor: pointer;
+
+  :where(img) {
+    transition: f.$transition;
+  }
+
+  &:hover {
+    :where(img) {
+      opacity: 0.7;
+    }
+  }
+}
+
+:where(h1, h2, h3, h4, h5) {
+  font-weight: f.$W6;
+}
+
+h1 {
+  font-size: 4.5rem;
+  @include f.mq(max, sm) {
+    font-size: 3rem;
+  }
+}
+
+h2 {
+  font-size: 3.5rem;
+  @include f.mq(max, sm) {
+    font-size: 2.6rem;
+  }
+}
+
+h3 {
+  font-size: 3rem;
+  @include f.mq(max, sm) {
+    font-size: 2.4rem;
+  }
+}
+
+h4 {
+  font-size: 2.4rem;
+  @include f.mq(max, sm) {
+    font-size: 2.2rem;
+  }
+}
+
+h5 {
+  font-size: 1.8rem;
+}
