@@ -1,0 +1,17 @@
+.c-pagination {
+  display: flex;
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #333;
+
+    & + & {
+      margin-left: 10px;
+    }
+  }
+}
