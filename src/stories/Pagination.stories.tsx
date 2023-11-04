@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Pagination from '../components/Pagination';
+import Pagination from '@/components/Pagination';
 
 // 最大ページ数
 const maxPages = 10;
