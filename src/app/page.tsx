@@ -1,4 +1,4 @@
-import IndexHero from '@/components/client/index-hero';
+import IndexHero from '@/components/client/indexHero';
 
 export default function Home() {
   return (
