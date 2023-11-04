@@ -16,5 +16,10 @@ pnpm-lock.yaml
 # production
 /build
 
-# setting
+# config
 .node
+.eslintrc.js
+prettier.config.js
+next.config.js
+tsconfig.json
+
