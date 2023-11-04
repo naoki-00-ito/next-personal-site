@@ -8,14 +8,18 @@ import remarkToc from 'remark-toc';
 import remarkRehype from 'remark-rehype';
 import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
-import gfm from "remark-gfm";
+import gfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import 'highlight.js/styles/github-dark.css';
 import TipList from '@/components/TipList';
 
 export default async function Article({ params }) {
   const { slug } = params;
-  const filePath = path.join(process.cwd(), ARTICLE_DIR, `${slug}${ARTICLE_FILE_EXTENTION}`);
+  const filePath = path.join(
+    process.cwd(),
+    ARTICLE_DIR,
+    `${slug}${ARTICLE_FILE_EXTENTION}`,
+  );
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContents);
   const title = data.title;
@@ -41,17 +45,11 @@ export default async function Article({ params }) {
     <div>
       <h1 className='p-title'>{title}</h1>
 
-      <time dateTime={date}>
-        {date}
-      </time>
+      <time dateTime={date}>{date}</time>
 
-      <TipList
-        items={category}
-      />
+      <TipList items={category} />
 
-      <TipList
-        items={tags}
-      />
+      <TipList items={tags} />
 
       <div dangerouslySetInnerHTML={{ __html: contentHtml }} className='t-detail'></div>
     </div>

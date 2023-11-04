@@ -5,7 +5,7 @@ import Pagination from '@/components/Pagination';
 // 最大ページ数
 const maxPages = 10;
 
-// pages用配列作成 
+// pages用配列作成
 const maxPagesArray = [];
 for (let i = 1; i <= maxPages; i++) {
   maxPagesArray.push(i);

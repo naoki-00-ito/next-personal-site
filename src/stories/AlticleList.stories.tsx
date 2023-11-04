@@ -9,8 +9,8 @@ const testArticle = {
     description: 'descriptiondescriptiondescriptiondescriptiondescription',
     category: ['category'],
     tags: ['tag1', 'tag2'],
-    date: '2023-01-01'
-  }
+    date: '2023-01-01',
+  },
 };
 
 const testArticles = Array(5).fill(testArticle);

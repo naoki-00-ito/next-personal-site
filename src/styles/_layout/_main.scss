@@ -1,6 +1,6 @@
 // main
 
-@use "../_foundation" as f;
+@use '../_foundation' as f;
 
 .l-main {
   @include f.contents;

@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 import { getArticles } from '@/libs/getArticles';
 import AlticleList from '@/components/AlticleList';
 
@@ -6,10 +6,8 @@ async function ArticlesCategory() {
   const articles = await getArticles({ tag: 'sentry', max: 4 });
 
   return (
-    <div className="p-index-articles">
-      <AlticleList
-        articles={articles}
-      />
+    <div className='p-index-articles'>
+      <AlticleList articles={articles} />
     </div>
   );
 }
@@ -18,10 +16,8 @@ async function ArticlesTag() {
   const articles = await getArticles({ tag: 'next', max: 4 });
 
   return (
-    <div className="p-index-articles">
-      <AlticleList
-        articles={articles}
-      />
+    <div className='p-index-articles'>
+      <AlticleList articles={articles} />
     </div>
   );
 }
@@ -35,5 +31,5 @@ export default function Home() {
 
       <ArticlesTag />
     </div>
-  )
+  );
 }

@@ -8,7 +8,7 @@ type Props = {
   max?: number;
   category?: string;
   tag?: string;
-}
+};
 
 export async function getArticles({ max, category, tag }: Props): Promise<Articles> {
   const articlesDirectory = path.join(process.cwd(), ARTICLE_DIR);
@@ -24,22 +24,22 @@ export async function getArticles({ max, category, tag }: Props): Promise<Articl
         slug: fileName.replace(ARTICLE_FILE_EXTENTION, ''),
         frontmatter: data,
       };
-    })
+    }),
   ).then((articles) => {
-    articles.sort((a, b) => new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1);
+    articles.sort((a, b) =>
+      new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1,
+    );
 
     // カテゴリが指定された場合は該当する記事のみをフィルタリング
     if (category) {
       articles = articles.filter((article) =>
-        article.frontmatter.category.includes(category)
+        article.frontmatter.category.includes(category),
       );
     }
 
     // タグが指定された場合も該当する記事のみをフィルタリング
     if (tag) {
-      articles = articles.filter((article) =>
-        article.frontmatter.tags.includes(tag)
-      );
+      articles = articles.filter((article) => article.frontmatter.tags.includes(tag));
     }
 
     // maxがある場合は指定された件数だけ記事を抽出

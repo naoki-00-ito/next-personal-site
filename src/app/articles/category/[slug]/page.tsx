@@ -17,18 +17,19 @@ export async function ArticlesCategoryPage({ params }) {
 
   const slicedArticles = articles.slice(
     ARTICLE_PAGE_SIZE * (currentPage - 1),
-    ARTICLE_PAGE_SIZE * currentPage
+    ARTICLE_PAGE_SIZE * currentPage,
   );
 
   return (
     <>
-      <AlticleList
-        articles={slicedArticles}
+      <AlticleList articles={slicedArticles} />
+
+      <Pagination
+        pages={pages}
+        currentPage={currentPage}
+        baseUrl={`/articles/category/${category}/page/`}
       />
-
-      <Pagination pages={pages} currentPage={currentPage} baseUrl={`/articles/category/${category}/page/`} />
     </>
-
   );
 }
 

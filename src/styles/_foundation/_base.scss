@@ -1,12 +1,12 @@
 // base
 
-@use "../_foundation" as f;
+@use '../_foundation' as f;
 
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap');
 
 html {
   color: f.$color-black;
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 62.5%;
   font-weight: f.$normal;
   line-break: strict;
