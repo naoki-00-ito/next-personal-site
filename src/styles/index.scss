@@ -2,6 +2,7 @@
 
 /* foundation */
 @use './_foundation/reset';
+@use './_foundation/custom-property';
 @use './_foundation/base';
 
 /* layout */
@@ -11,6 +12,9 @@
 @use './_object/_component/button';
 @use './_object/_component/title';
 @use './_object/_component/pagination';
+
+/* project index */
+@use './_object/_project/index-hero';
 
 /* project */
 @use './_object/_project/hero';

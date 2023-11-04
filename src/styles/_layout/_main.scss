@@ -4,11 +4,4 @@
 
 .l-main {
   @include f.contents;
-  padding-top: 155px;
-  @include f.mq(max, md) {
-    padding-top: 115px;
-  }
-  @include f.mq(max, sm) {
-    padding-top: 100px;
-  }
 }
