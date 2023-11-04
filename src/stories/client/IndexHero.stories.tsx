@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import indexHero from '@/components/client/indexHero';
+import indexHero from '@/components/client/IndexHero';
 
 const meta = {
   title: 'Components/Client/indexHero',
