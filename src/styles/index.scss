@@ -12,9 +12,11 @@
 @use './_object/_component/button';
 @use './_object/_component/title';
 @use './_object/_component/pagination';
+@use './_object/_component/background';
 
 /* project index */
 @use './_object/_project/index-hero';
+@use './_object/_project/index-article';
 
 /* project */
 @use './_object/_project/hero';

@@ -1,0 +1,28 @@
+@use '../../_foundation/' as *;
+
+$width: 300px;
+$space: 10px;
+
+.p-index-article {
+  position: relative;
+  height: 100vh;
+
+  * {
+    color: inherit;
+  }
+
+  &__list {
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: calc(calc($width + $space) * 5);
+  }
+
+  &__item {
+    width: $width;
+
+    &+& {
+      margin-left: $space;
+    }
+  }
+}
