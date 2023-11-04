@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { getArticles } from '@/libs/getArticles';
-import AlticleList from '@/components/AlticleList';
+import AlticleList from '@/components/server/AlticleList';
 
 async function ArticlesCategory() {
   const articles = await getArticles({ tag: 'sentry', max: 4 });

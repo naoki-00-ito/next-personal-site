@@ -1,8 +1,8 @@
 import fs from 'fs';
 import { ARTICLE_PAGE_SIZE, ARTICLE_DIR } from '@/env';
 import { getArticles } from '@/libs/getArticles';
-import AlticleList from '@/components/AlticleList';
-import Pagination from '@/components/Pagination';
+import AlticleList from '@/components/server/AlticleList';
+import Pagination from '@/components/server/Pagination';
 
 export async function getStaticPaths() {
   const files = fs.readdirSync(ARTICLE_DIR);

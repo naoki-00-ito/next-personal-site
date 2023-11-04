@@ -1,7 +1,7 @@
 import { ARTICLE_PAGE_SIZE } from '@/env';
 import { getArticles } from '@/libs/getArticles';
-import AlticleList from '@/components/AlticleList';
-import Pagination from '@/components/Pagination';
+import AlticleList from '@/components/server/AlticleList';
+import Pagination from '@/components/server/Pagination';
 
 const range = (start: number, end: number, length = end - start + 1) =>
   Array.from({ length }, (_, i) => start + i);

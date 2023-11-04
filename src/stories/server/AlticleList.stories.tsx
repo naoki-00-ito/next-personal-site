@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { Meta, StoryObj } from '@storybook/react';
 
-import AlticleList from '@/components/AlticleList';
+import AlticleList from '@/components/server/AlticleList';
 
 const testArticle = {
   slug: 'slug',
@@ -16,7 +17,7 @@ const testArticle = {
 const testArticles = Array(5).fill(testArticle);
 
 const meta = {
-  title: 'Components/AlticleList',
+  title: 'Components/Server/AlticleList',
   component: AlticleList,
   tags: ['autodocs'],
 } satisfies Meta<typeof AlticleList>;
