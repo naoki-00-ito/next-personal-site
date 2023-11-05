@@ -10,8 +10,8 @@ import { useRef, useLayoutEffect } from 'react';
 gsap.registerPlugin(ScrollTrigger);
 
 const IndexArticle = ({ articles }: { articles: Articles }) => {
-
   const listRef = useRef(null);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const itemRefs = articles.map(() => useRef(null));
 
   const didEffect = useRef(false);
@@ -23,12 +23,12 @@ const IndexArticle = ({ articles }: { articles: Articles }) => {
       gsap.to(listRef.current, {
         scrollTrigger: {
           trigger: listRef.current,
-          start: "top center",
+          start: 'top center',
           invalidateOnRefresh: true,
           scrub: true,
           toggleClass: {
             targets: listRef.current,
-            className: "is-active",
+            className: 'is-active',
           },
         },
       });
@@ -41,12 +41,12 @@ const IndexArticle = ({ articles }: { articles: Articles }) => {
             gsap.to(targetElement, {
               scrollTrigger: {
                 trigger: targetElement,
-                start: "top center",
+                start: 'top center',
                 invalidateOnRefresh: true,
                 scrub: true,
                 toggleClass: {
                   targets: targetElement,
-                  className: "is-active",
+                  className: 'is-active',
                 },
               },
             });
@@ -57,11 +57,15 @@ const IndexArticle = ({ articles }: { articles: Articles }) => {
   });
 
   return (
-    <div className="p-index-article">
+    <div className='p-index-article'>
       <ul className='p-index-article__list' ref={listRef}>
         {articles.map((article, index) => {
           return (
-            <li className='p-index-article__item' key={article.slug} ref={itemRefs[index]}>
+            <li
+              className='p-index-article__item'
+              key={article.slug}
+              ref={itemRefs[index]}
+            >
               <Link href={`/articles/${article.slug}`} className='p-index-article__link'>
                 <h3 className='p-index-article__title'>{article.frontmatter.title}</h3>
                 <time className='p-index-article__time'>{article.frontmatter.date}</time>
@@ -74,6 +78,6 @@ const IndexArticle = ({ articles }: { articles: Articles }) => {
       </ul>
     </div>
   );
-}
+};
 
 export default IndexArticle;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { ARTICLE_DIR, ARTICLE_FILE_EXTENTION } from '@/env';
 import fs from 'fs';
 import path from 'path';
@@ -13,8 +14,11 @@ import rehypeHighlight from 'rehype-highlight';
 import 'highlight.js/styles/github-dark.css';
 import TipList from '@/components/server/TipList';
 
-export default async function Article({ params }) {
-  const { slug } = params;
+export default async function Article({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) {
   const filePath = path.join(
     process.cwd(),
     ARTICLE_DIR,
@@ -23,8 +27,11 @@ export default async function Article({ params }) {
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContents);
   const title = data.title;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const date = data.date;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const category = data.category;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const tags = data.tags;
   const processedContent = await unified()
     .use(remarkParse)

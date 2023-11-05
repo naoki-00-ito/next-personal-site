@@ -10,11 +10,11 @@ $space: 1rem;
     &::before {
       content: '';
       width: 0;
-      height: .1rem;
+      height: 0.1rem;
       background-color: var(--color-gray);
       position: absolute;
       left: 0;
-      transition: .3s;
+      transition: 0.3s;
     }
 
     &.is-active {
@@ -53,6 +53,6 @@ $space: 1rem;
   &__time {
     display: block;
     color: var(--color-gray);
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 }

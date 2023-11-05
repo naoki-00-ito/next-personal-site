@@ -6,18 +6,19 @@ import Pagination from '@/components/server/Pagination';
 const range = (start: number, end: number, length = end - start + 1) =>
   Array.from({ length }, (_, i) => start + i);
 
-export async function ArticlesEachPage({ params }) {
-  const currentPage = params.current;
-  const tag = params.slug;
-
+async function ArticlesEachPage({
+  params: { current, slug },
+}: {
+  params: { current: number; slug: string };
+}) {
   // 指定タグの記事のみ、全件取得
-  const articles = await getArticles({ tag: tag });
+  const articles = await getArticles({ tag: slug });
 
   const pages = range(1, Math.ceil(articles.length / ARTICLE_PAGE_SIZE));
 
   const slicedArticles = articles.slice(
-    ARTICLE_PAGE_SIZE * (currentPage - 1),
-    ARTICLE_PAGE_SIZE * currentPage,
+    ARTICLE_PAGE_SIZE * (current - 1),
+    ARTICLE_PAGE_SIZE * current,
   );
 
   return (
@@ -26,8 +27,8 @@ export async function ArticlesEachPage({ params }) {
 
       <Pagination
         pages={pages}
-        currentPage={currentPage}
-        baseUrl={`/articles/tag/${tag}/page/`}
+        currentPage={current}
+        baseUrl={`/articles/tag/${slug}/page/`}
       />
     </>
   );

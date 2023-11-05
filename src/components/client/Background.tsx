@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -25,7 +25,7 @@ const Background = () => {
             trigger: backgroundRef.current,
             start: 'top top',
           },
-        }
+        },
       );
     }
   }, []);
@@ -34,4 +34,3 @@ const Background = () => {
 };
 
 export default Background;
-

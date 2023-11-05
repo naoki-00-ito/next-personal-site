@@ -4,7 +4,8 @@ import { getArticles } from '@/libs/getArticles';
 import AlticleList from '@/components/server/AlticleList';
 import Pagination from '@/components/server/Pagination';
 
-export async function getStaticPaths() {
+// eslint-disable-next-line @typescript-eslint/require-await, @typescript-eslint/no-unused-vars
+async function getStaticPaths() {
   const files = fs.readdirSync(ARTICLE_DIR);
   const count = files.length;
 
@@ -21,24 +22,26 @@ export async function getStaticPaths() {
 const range = (start: number, end: number, length = end - start + 1) =>
   Array.from({ length }, (_, i) => start + i);
 
-export async function ArticlesEachPage({ params }) {
-  const currentPage = params.current;
-
+async function ArticlesEachPage({
+  params: { current },
+}: {
+  params: { current: number };
+}) {
   // 記事全件取得
   const articles = await getArticles({});
 
   const pages = range(1, Math.ceil(articles.length / ARTICLE_PAGE_SIZE));
 
   const slicedArticles = articles.slice(
-    ARTICLE_PAGE_SIZE * (currentPage - 1),
-    ARTICLE_PAGE_SIZE * currentPage,
+    ARTICLE_PAGE_SIZE * (current - 1),
+    ARTICLE_PAGE_SIZE * current,
   );
 
   return (
     <>
       <AlticleList articles={slicedArticles} />
 
-      <Pagination pages={pages} currentPage={currentPage} />
+      <Pagination pages={pages} currentPage={current} />
     </>
   );
 }

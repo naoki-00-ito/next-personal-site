@@ -6,12 +6,11 @@ import Pagination from '@/components/server/Pagination';
 const range = (start: number, end: number, length = end - start + 1) =>
   Array.from({ length }, (_, i) => start + i);
 
-export async function ArticlesTagPage({ params }) {
+async function ArticlesTagPage({ params: { slug } }: { params: { slug: string } }) {
   const currentPage = 1;
-  const tag = params.slug;
 
   // 指定タグの記事のみ、全件取得
-  const articles = await getArticles({ tag: tag });
+  const articles = await getArticles({ tag: slug });
 
   const pages = range(1, Math.ceil(articles.length / ARTICLE_PAGE_SIZE));
 
@@ -27,7 +26,7 @@ export async function ArticlesTagPage({ params }) {
       <Pagination
         pages={pages}
         currentPage={currentPage}
-        baseUrl={`/articles/tag/${tag}/page/`}
+        baseUrl={`/articles/tag/${slug}/page/`}
       />
     </>
   );

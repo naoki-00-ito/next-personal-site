@@ -11,7 +11,7 @@ $not-active-value: 1rem;
     transition: f.$transition;
 
     &:not(.is-active) {
-      opacity: .9;
+      opacity: 0.9;
       margin: calc($not-active-value * 3) $not-active-value;
       border-radius: $not-active-value;
     }

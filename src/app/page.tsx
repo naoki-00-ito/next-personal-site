@@ -6,9 +6,7 @@ import Section from '@/components/client/Section';
 async function ArticlesTech() {
   const articles = await getArticles({ category: 'tech', max: 4 });
 
-  return (
-    <IndexArticle articles={articles} />
-  );
+  return <IndexArticle articles={articles} />;
 }
 
 export default function Home() {
