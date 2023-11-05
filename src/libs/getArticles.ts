@@ -44,7 +44,7 @@ export async function getArticles({ max, category, tag }: Props): Promise<Articl
 
     // maxがある場合は指定された件数だけ記事を抽出
     if (max) {
-      articles.slice(0, max);
+      articles = articles.slice(0, max);
     }
 
     return articles;

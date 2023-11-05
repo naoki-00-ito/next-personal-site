@@ -1,28 +1,58 @@
-@use '../../_foundation/' as *;
+@use '../../_foundation/' as f;
 
-$width: 300px;
-$space: 10px;
+$space: 1rem;
 
 .p-index-article {
-  position: relative;
-  height: 100vh;
+  &__list,
+  &__item {
+    position: relative;
 
-  * {
-    color: inherit;
+    &::before {
+      content: '';
+      width: 0;
+      height: .1rem;
+      background-color: var(--color-gray);
+      position: absolute;
+      left: 0;
+      transition: .3s;
+    }
+
+    &.is-active {
+      &::before {
+        width: 100%;
+      }
+    }
   }
 
   &__list {
-    display: flex;
-    position: absolute;
-    top: 0;
-    width: calc(calc($width + $space) * 5);
+    width: 100%;
+
+    &::before {
+      top: 0;
+    }
   }
 
   &__item {
-    width: $width;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 
-    &+& {
-      margin-left: $space;
+    &::before {
+      bottom: 0;
     }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: f.$medium;
+    line-break: strict;
+    color: var(--color-light);
+  }
+
+  &__time {
+    display: block;
+    color: var(--color-gray);
+    margin-top: .5rem;
   }
 }

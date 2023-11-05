@@ -7,12 +7,14 @@
 
 /* layout */
 @use './_layout/main';
+@use './_layout/section';
 
 /* component */
 @use './_object/_component/button';
 @use './_object/_component/title';
 @use './_object/_component/pagination';
 @use './_object/_component/background';
+@use './_object/_component/tip-list';
 
 /* project index */
 @use './_object/_project/index-hero';
