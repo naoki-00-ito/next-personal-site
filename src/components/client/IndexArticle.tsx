@@ -2,58 +2,16 @@
 
 import { Articles } from '@/types/article';
 import TipList from '@/components/server/TipList';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useRef, useLayoutEffect } from 'react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRef } from 'react';
+import useToggleClass from '@/hooks/useToggleClass';
 
 const IndexArticle = ({ articles }: { articles: Articles }) => {
   const listRef = useRef(null);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const itemRefs = articles.map(() => useRef(null));
 
-  const didEffect = useRef(false);
-
-  useLayoutEffect(() => {
-    if (!didEffect.current) {
-      didEffect.current = true;
-
-      gsap.to(listRef.current, {
-        scrollTrigger: {
-          trigger: listRef.current,
-          start: 'top center',
-          invalidateOnRefresh: true,
-          scrub: true,
-          toggleClass: {
-            targets: listRef.current,
-            className: 'is-active',
-          },
-        },
-      });
-
-      if (itemRefs && itemRefs.length > 0) {
-        itemRefs.forEach((ref) => {
-          const targetElement = ref.current;
-
-          if (targetElement) {
-            gsap.to(targetElement, {
-              scrollTrigger: {
-                trigger: targetElement,
-                start: 'top center',
-                invalidateOnRefresh: true,
-                scrub: true,
-                toggleClass: {
-                  targets: targetElement,
-                  className: 'is-active',
-                },
-              },
-            });
-          }
-        });
-      }
-    }
-  });
+  useToggleClass(listRef);
+  useToggleClass(itemRefs);
 
   return (
     <div className='p-index-article'>
