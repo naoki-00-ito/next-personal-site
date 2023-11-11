@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { Articles } from '@/types/article';
 import TipList from '@/components/server/TipList';
 import { gsap } from 'gsap';
@@ -66,12 +65,12 @@ const IndexArticle = ({ articles }: { articles: Articles }) => {
               key={article.slug}
               ref={itemRefs[index]}
             >
-              <Link href={`/articles/${article.slug}`} className='p-index-article__link'>
+              <a href={`/articles/${article.slug}`} className='p-index-article__link'>
                 <h3 className='p-index-article__title'>{article.frontmatter.title}</h3>
                 <time className='p-index-article__time'>{article.frontmatter.date}</time>
                 <TipList items={article.frontmatter.category} />
                 <TipList items={article.frontmatter.tags} />
-              </Link>
+              </a>
             </li>
           );
         })}
