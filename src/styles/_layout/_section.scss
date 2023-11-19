@@ -1,19 +1,32 @@
 @use '../_foundation' as f;
 
-$not-active-value: 1rem;
-
 .l-section {
   &--background {
+    position: relative;
     padding-top: 4rem;
     padding-bottom: 4rem;
     @include f.contents-full;
-    background-color: var(--color-black);
-    transition: f.$transition;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-black);
+      transition: f.$transition;
+      z-index: -1;
+    }
 
     &:not(.is-active) {
-      opacity: 0.9;
-      margin: calc($not-active-value * 3) $not-active-value;
-      border-radius: $not-active-value;
+      &::before {
+        opacity: 0.9;
+        width: 98%;
+        height: 98%;
+        border-radius: 1rem;
+      }
     }
   }
 }
