@@ -1,11 +1,8 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useRef, useLayoutEffect } from 'react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRef } from 'react';
+import useToggleClass from '@/hooks/useToggleClass';
 
 type Props = {
   children: ReactNode;
@@ -15,24 +12,8 @@ type Props = {
 
 const Section = ({ children, background = false }: Props) => {
   const sectionRef = useRef(null);
-  const didEffect = useRef(false);
 
-  useLayoutEffect(() => {
-    if (!didEffect.current && background === true) {
-      gsap.to(sectionRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top center',
-          invalidateOnRefresh: true,
-          scrub: true,
-          toggleClass: {
-            targets: sectionRef.current,
-            className: 'is-active',
-          },
-        },
-      });
-    }
-  });
+  useToggleClass(sectionRef);
 
   return (
     <section
