@@ -13,13 +13,6 @@ html {
   @include f.mq(max, xs) {
     font-size: 56%;
   }
-  -ms-overflow-x: hidden;
-  overflow-x: hidden;
-}
-
-body {
-  -ms-overflow-x: hidden;
-  overflow-x: hidden;
 }
 
 * {
