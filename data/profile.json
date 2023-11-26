@@ -10,7 +10,7 @@
           "title": "学んだ技術"
         },
         {
-          "item": ["HTML", "CSS", "JavaScript", "PHP", "Ruby"]
+          "items": ["HTML", "CSS", "JavaScript", "PHP", "Ruby"]
         }
       ]
     },

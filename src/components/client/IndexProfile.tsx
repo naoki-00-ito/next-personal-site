@@ -1,18 +1,19 @@
 'use client';
 
 import useToggleClass from '@/hooks/useToggleClass';
-import { useRef } from 'react';
+import { MutableRefObject, useRef } from 'react';
 import Image from 'next/image';
 import { Profile } from '@/types/profile';
 
 const IndexProfile = ({ items }: { items: Profile }) => {
-  console.log(typeof items);
-  console.log(items.list[1]);
-
   const imageRef = useRef(null);
-  const stringRef = useRef(null);
+
+  const itemRefs: MutableRefObject<HTMLElement | null>[] = items.list.map(() =>
+    useRef(null),
+  );
 
   useToggleClass(imageRef);
+  useToggleClass(itemRefs);
 
   return (
     <section className='p-index-profile'>
@@ -25,11 +26,11 @@ const IndexProfile = ({ items }: { items: Profile }) => {
           </picture>
         </div>
 
-        <div className='p-index-profile__string' ref={stringRef}>
+        <div className='p-index-profile__string'>
           <ul className='p-index-profile__list'>
-            {items.list.map((item) => {
+            {items.list.map((item, i) => {
               return (
-                <li className='p-index-profile__item' key={item.id}>
+                <li className='p-index-profile__item' key={item.id} ref={itemRefs[i]}>
                   <div className='p-index-profile__item-inside'>
                     <p
                       className='p-index-profile__item-date'
@@ -51,6 +52,38 @@ const IndexProfile = ({ items }: { items: Profile }) => {
                           __html: item.text,
                         }}
                       />
+
+                      <div className='p-index-profile__stack'>
+                        {item.stack?.map((stack, stackIndex) => {
+                          return (
+                            <div
+                              className='p-index-profile__stack-inside'
+                              key={stackIndex}
+                            >
+                              {stack.title && (
+                                <p className='p-index-profile__stack-head'>
+                                  {stack.title}:
+                                </p>
+                              )}
+
+                              {stack.items && (
+                                <p className='p-index-profile__stack-items'>
+                                  {stack.items?.map((item, itemIndex) => {
+                                    return (
+                                      <span
+                                        className='p-index-profile__stack-item'
+                                        key={itemIndex}
+                                      >
+                                        {item}
+                                      </span>
+                                    );
+                                  })}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
                 </li>

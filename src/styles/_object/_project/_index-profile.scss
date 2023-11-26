@@ -1,10 +1,12 @@
-@use '../../_foundation/' as *;
+@use '../../_foundation/' as f;
 
-$timeline-margin: 4rem;
+$timeline-margin: 6rem;
 $timeline-circle: 1.2rem;
 $timeline-circle-position-x: 0.3rem;
 
 .p-index-profile {
+  $this: &;
+
   &__main {
     height: 100%;
     display: flex;
@@ -17,7 +19,7 @@ $timeline-circle-position-x: 0.3rem;
     overflow: hidden;
     position: sticky;
     top: 25%;
-    transition: $transition;
+    transition: f.$transition;
     transform: translateZ(0);
 
     &:not(.is-active) {
@@ -28,10 +30,6 @@ $timeline-circle-position-x: 0.3rem;
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    &-wrapper {
-      height: 100vh;
     }
   }
 
@@ -62,6 +60,7 @@ $timeline-circle-position-x: 0.3rem;
         content: '';
         position: absolute;
         box-sizing: content-box;
+        transition: f.$transition;
       }
 
       &::before {
@@ -79,6 +78,27 @@ $timeline-circle-position-x: 0.3rem;
         height: calc(calc(100% + $timeline-margin) - calc($timeline-circle + 0.1rem));
         top: calc(calc($timeline-circle + 0.1rem) + $timeline-circle-position-x);
         right: calc($timeline-circle / 2);
+        transition-delay: 0.4s;
+      }
+    }
+
+    &:last-child {
+      #{$this}__item-date {
+        &::after {
+          height: calc(100% - calc($timeline-circle + 0.1rem));
+        }
+      }
+    }
+
+    &:not(.is-active) {
+      #{$this}__item-date {
+        &::before {
+          opacity: 0;
+        }
+
+        &::after {
+          height: 0;
+        }
       }
     }
 
@@ -92,6 +112,30 @@ $timeline-circle-position-x: 0.3rem;
 
     &-text {
       margin-top: 1.6rem;
+    }
+  }
+
+  &__stack {
+    margin-top: 1.6rem;
+    display: flex;
+
+    &-inside {
+    }
+
+    &-head {
+    }
+
+    &-item {
+      &s {
+        margin-left: 0.5rem;
+      }
+
+      & + & {
+        &::before {
+          content: ',';
+          margin-right: 0.4rem;
+        }
+      }
     }
   }
 }
