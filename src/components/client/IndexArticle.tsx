@@ -7,21 +7,22 @@ import useToggleClass from '@/hooks/useToggleClass';
 
 const IndexArticle = ({ articles }: { articles: Articles }) => {
   const listRef = useRef(null);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const itemRefs = articles.map(() => useRef(null));
 
-  useToggleClass(listRef);
-  useToggleClass(itemRefs);
+  useToggleClass({ elementRef: listRef, elementsClassName: null, once: true });
+  useToggleClass({
+    elementRef: null,
+    elementsClassName: '.ts-index-article-item',
+    once: true,
+  });
 
   return (
     <div className='p-index-article'>
       <ul className='p-index-article__list' ref={listRef}>
-        {articles.map((article, index) => {
+        {articles.map((article) => {
           return (
             <li
-              className='p-index-article__item'
+              className='p-index-article__item ts-index-article-item'
               key={article.slug}
-              ref={itemRefs[index]}
             >
               <a href={`/articles/${article.slug}`} className='p-index-article__link'>
                 <h3 className='p-index-article__title'>{article.frontmatter.title}</h3>

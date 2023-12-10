@@ -1,19 +1,20 @@
 'use client';
 
 import useToggleClass from '@/hooks/useToggleClass';
-import { MutableRefObject, useRef } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 import { Profile } from '@/types/profile';
 
 const IndexProfile = ({ items }: { items: Profile }) => {
+  const listRef = useRef(null);
   const imageRef = useRef(null);
 
-  const itemRefs: MutableRefObject<HTMLElement | null>[] = items.list.map(() =>
-    useRef(null),
-  );
-
-  useToggleClass(imageRef);
-  useToggleClass(itemRefs);
+  useToggleClass({
+    elementRef: null,
+    elementsClassName: '.ts-index-profile-item',
+    once: true,
+  });
+  useToggleClass({ elementRef: imageRef, elementsClassName: null, once: true });
 
   return (
     <section className='p-index-profile'>
@@ -27,10 +28,10 @@ const IndexProfile = ({ items }: { items: Profile }) => {
         </div>
 
         <div className='p-index-profile__string'>
-          <ul className='p-index-profile__list'>
-            {items.list.map((item, i) => {
+          <ul className='p-index-profile__list' ref={listRef}>
+            {items.list.map((item) => {
               return (
-                <li className='p-index-profile__item' key={item.id} ref={itemRefs[i]}>
+                <li className='p-index-profile__item ts-index-profile-item' key={item.id}>
                   <div className='p-index-profile__item-inside'>
                     <p
                       className='p-index-profile__item-date'
