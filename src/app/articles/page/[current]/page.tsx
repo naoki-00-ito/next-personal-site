@@ -4,8 +4,7 @@ import { getArticles } from '@/libs/getArticles';
 import AlticleList from '@/components/server/AlticleList';
 import Pagination from '@/components/server/Pagination';
 
-// eslint-disable-next-line @typescript-eslint/require-await, @typescript-eslint/no-unused-vars
-async function getStaticPaths() {
+export const getStaticPaths = () => {
   const files = fs.readdirSync(ARTICLE_DIR);
   const count = files.length;
 
@@ -17,7 +16,7 @@ async function getStaticPaths() {
     paths,
     fallback: false,
   };
-}
+};
 
 const range = (start: number, end: number, length = end - start + 1) =>
   Array.from({ length }, (_, i) => start + i);

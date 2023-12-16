@@ -15,8 +15,7 @@ export async function getArticles({ max, category, tag }: Props): Promise<Articl
   const fileNames = fs.readdirSync(articlesDirectory);
 
   const articles: Articles = await Promise.all(
-    // eslint-disable-next-line @typescript-eslint/require-await
-    fileNames.map(async (fileName) => {
+    fileNames.map((fileName) => {
       const filePath = path.join(articlesDirectory, fileName);
       const fileContents = fs.readFileSync(filePath, 'utf8');
       const { data } = matter(fileContents);
@@ -28,22 +27,23 @@ export async function getArticles({ max, category, tag }: Props): Promise<Articl
     }),
   ).then((articles) => {
     articles.sort((a, b) =>
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1,
+      new Date(a.frontmatter.date as string) > new Date(b.frontmatter.date as string)
+        ? -1
+        : 1,
     );
 
     // カテゴリが指定された場合は該当する記事のみをフィルタリング
     if (category) {
       articles = articles.filter((article) =>
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-        article.frontmatter.category.includes(category),
+        (article.frontmatter.category as string).includes(category),
       );
     }
 
     // タグが指定された場合も該当する記事のみをフィルタリング
     if (tag) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-      articles = articles.filter((article) => article.frontmatter.tags.includes(tag));
+      articles = articles.filter((article) =>
+        (article.frontmatter.tags as string).includes(tag),
+      );
     }
 
     // maxがある場合は指定された件数だけ記事を抽出

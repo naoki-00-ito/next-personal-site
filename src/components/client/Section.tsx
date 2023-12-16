@@ -13,7 +13,7 @@ type Props = {
 const Section = ({ children, background = false }: Props) => {
   const sectionRef = useRef(null);
 
-  useToggleClass(sectionRef);
+  useToggleClass({ elementRef: sectionRef, elementsClassName: null, once: false });
 
   return (
     <section

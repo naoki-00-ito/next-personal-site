@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { ARTICLE_DIR, ARTICLE_FILE_EXTENTION } from '@/env';
 import fs from 'fs';
 import path from 'path';
@@ -26,13 +25,10 @@ export default async function Article({
   );
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContents);
-  const title = data.title;
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const date = data.date;
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const category = data.category;
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const tags = data.tags;
+  const title = data.title as string;
+  const date = data.date as string;
+  const category = data.category as string[];
+  const tags = data.tags as string[];
   const processedContent = await unified()
     .use(remarkParse)
     .use(remarkToc, {
