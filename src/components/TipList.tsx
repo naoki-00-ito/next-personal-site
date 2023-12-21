@@ -1,6 +1,6 @@
 type Items = string[];
 
-export const TipList = ({ items }: { items: Items }) => {
+const TipList = ({ items }: { items: Items }) => {
   return (
     <ul className="c-tip-list">
       {items.map((item, i) => {
@@ -13,3 +13,5 @@ export const TipList = ({ items }: { items: Items }) => {
     </ul>
   )
 }
+
+export default TipList;

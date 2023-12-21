@@ -11,7 +11,7 @@ import rehypeStringify from 'rehype-stringify';
 import gfm from "remark-gfm";
 import rehypeHighlight from 'rehype-highlight';
 import 'highlight.js/styles/github-dark.css';
-import { TipList } from '@/components/TipList';
+import TipList from '@/components/TipList';
 
 export default async function Article({ params }) {
   const { slug } = params;

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Articles } from '@/types/article';
-import { TipList } from '@/components/TipList';
+import TipList from '@/components/TipList';
 
 const AlticleList = ({ articles }: { articles: Articles }) => {
   return (
