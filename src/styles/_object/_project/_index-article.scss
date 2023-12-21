@@ -1,0 +1,58 @@
+@use '../../_foundation/' as f;
+
+$space: 1rem;
+
+.p-index-article {
+  &__list,
+  &__item {
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 0.1rem;
+      background-color: var(--color-gray);
+      position: absolute;
+      left: 0;
+      transition: 0.3s;
+    }
+
+    &.is-active {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+
+  &__list {
+    width: 100%;
+
+    &::before {
+      top: 0;
+    }
+  }
+
+  &__item {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    &::before {
+      bottom: 0;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: f.$medium;
+    line-break: strict;
+    color: var(--color-light);
+  }
+
+  &__time {
+    display: block;
+    color: var(--color-gray);
+    margin-top: 0.5rem;
+  }
+}

@@ -1,0 +1,25 @@
+# Ignore artifacts:
+build
+coverage
+pnpm-lock.yaml
+
+# dotfile
+.env*
+
+# markdown
+*.md
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# config
+.node
+.eslintrc.js
+prettier.config.js
+next.config.js
+tsconfig.json
+

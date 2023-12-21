@@ -1,7 +1,7 @@
 export type Article = {
   slug: string;
   frontmatter: {
-    [key: string]: string | string[];
+    [key: string]: string[];
   };
 };
 
