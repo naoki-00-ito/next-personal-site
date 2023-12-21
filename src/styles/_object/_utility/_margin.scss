@@ -1,20 +1,20 @@
 @mixin margin {
-	@for $i from -50 through 50 {
-		&-top-#{$i * 5} {
-			margin-top: #{$i * 5}px !important;
-		}
-		&-right-#{$i * 5} {
-			margin-right: #{$i * 5}px !important;
-		}
-		&-bottom-#{$i * 5} {
-			margin-bottom: #{$i * 5}px !important;
-		}
-		&-left-#{$i * 5} {
-			margin-left: #{$i * 5}px !important;
-		}
-	}
+  @for $i from -50 through 50 {
+    &-top-#{$i * 5} {
+      margin-top: #{$i * 5}px !important;
+    }
+    &-right-#{$i * 5} {
+      margin-right: #{$i * 5}px !important;
+    }
+    &-bottom-#{$i * 5} {
+      margin-bottom: #{$i * 5}px !important;
+    }
+    &-left-#{$i * 5} {
+      margin-left: #{$i * 5}px !important;
+    }
+  }
 }
 
 .u-margin {
-	@include margin;
+  @include margin;
 }

@@ -1,39 +1,38 @@
-import Image from 'next/image'
+import IndexHero from '@/components/client/IndexHero';
 import { getArticles } from '@/libs/getArticles';
-import AlticleList from '@/components/AlticleList';
+import { getData } from '@/libs/getData';
+import IndexArticle from '@/components/client/IndexArticle';
+import Section from '@/components/client/Section';
+import IndexProfile from '@/components/client/IndexProfile';
 
-async function ArticlesCategory() {
-  const articles = await getArticles({ tag: 'sentry', max: 4 });
+async function ArticlesTech() {
+  const articles = await getArticles({ category: 'tech', max: 4 });
 
-  return (
-    <div className="p-index-articles">
-      <AlticleList
-        articles={articles}
-      />
-    </div>
-  );
+  return <IndexArticle articles={articles} />;
 }
 
-async function ArticlesTag() {
-  const articles = await getArticles({ tag: 'next', max: 4 });
+async function Profile() {
+  const profile = await getData({ fileName: 'profile.json' });
 
-  return (
-    <div className="p-index-articles">
-      <AlticleList
-        articles={articles}
-      />
-    </div>
-  );
+  return <IndexProfile items={profile} />;
 }
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <IndexHero />
+
+      <Section background={true}>
+        <ArticlesTech />
+      </Section>
+
+      <Section background={true}>
+        <Profile />
+      </Section>
+
       <p>index</p>
 
-      <ArticlesCategory />
-
-      <ArticlesTag />
-    </div>
-  )
+      <div style={{ height: '100vh' }}></div>
+    </>
+  );
 }

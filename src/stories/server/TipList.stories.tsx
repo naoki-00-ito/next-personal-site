@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import TipList from '@/components/TipList';
+import TipList from '@/components/server/TipList';
 
 const meta = {
-  title: 'Components/TipList',
+  title: 'Components/Server/TipList',
   component: TipList,
   tags: ['autodocs'],
 } satisfies Meta<typeof TipList>;

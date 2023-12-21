@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Pagination from '@/components/Pagination';
+import Pagination from '@/components/server/Pagination';
 
 // 最大ページ数
 const maxPages = 10;
 
-// pages用配列作成 
+// pages用配列作成
 const maxPagesArray = [];
 for (let i = 1; i <= maxPages; i++) {
   maxPagesArray.push(i);
 }
 
 const meta = {
-  title: 'Components/Pagination',
+  title: 'Components/Server/Pagination',
   component: Pagination,
   tags: ['autodocs'],
   args: {

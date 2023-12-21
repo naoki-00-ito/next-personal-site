@@ -1,0 +1,13 @@
+@use '../../_foundation/' as f;
+
+.c-tip-list {
+  margin-top: 0.5rem;
+  &__item {
+    border: 0.1rem solid var(--color-gray);
+    color: var(--color-gray);
+    display: inline-block;
+    font-family: var(--font-en);
+    border-radius: 1.5rem;
+    padding: 0.3rem 0.5rem;
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "date": "2018年4月 - 2021年3月",
+      "title": "地元の専門学校",
+      "text": "WEBプログラマコースを専攻。<br />PHPやRuby等を使用したWEBアプリケーションの開発や、HTML,CSS,JavaScriptを使用したWEBサイトの制作を学ぶ。<br />また、在学中に企業連携活動として地域企業・地域団体のWebサイト制作にも参画。",
+      "stack": [
+        {
+          "title": "学んだ技術"
+        },
+        {
+          "items": ["HTML", "CSS", "JavaScript", "PHP", "Ruby"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "2021年4月 - 2023年6月",
+      "title": "デジタルマーケティング会社",
+      "text": "新卒で入社し、WEB制作を専門で行うグループにエンジニアとして配属。<br />クライアントのWebサイトのコーディング作業をメインで行いながら、リソースの管理や受注前の制作工数見積もり等も担当。",
+      "stack": [
+        {
+          "title": "技術スタック"
+        },
+        {
+          "items": ["HTML", "EJS", "Pug", "CSS", "Sass", "JavaScript", "jQuery", "PHP"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "2023年7月 - ",
+      "title": "Web制作会社",
+      "text": "中途でフロントエンドエンジニアとして入社。<br />新規構築及び保守案件のフロント開発を担当している。",
+      "stack": [
+        {
+          "title": "技術スタック"
+        },
+        {
+          "items": [
+            "HTML",
+            "Pug",
+            "CSS",
+            "Sass",
+            "JavaScript",
+            "TypeScript",
+            "Vue.js",
+            "React",
+            "Next.js"
+          ]
+        }
+      ]
+    }
+  ]
+}

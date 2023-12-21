@@ -1,21 +1,29 @@
 @charset 'utf-8';
 
 /* foundation */
-@use "./_foundation/reset";
-@use "./_foundation/base";
+@use './_foundation/reset';
+@use './_foundation/custom-property';
+@use './_foundation/base';
 
 /* layout */
-@use "./_layout/main";
+@use './_layout/main';
+@use './_layout/section';
 
 /* component */
-@use "./_object/_component/button";
-@use "./_object/_component/title";
-@use "./_object/_component/pagination";
+@use './_object/_component/button';
+@use './_object/_component/title';
+@use './_object/_component/pagination';
+@use './_object/_component/tip-list';
+
+/* project index */
+@use './_object/_project/index-hero';
+@use './_object/_project/index-article';
+@use './_object/_project/index-profile';
 
 /* project */
-@use "./_object/_project/hero";
+@use './_object/_project/hero';
 
 /* utility */
-@use "./_object/_utility/margin";
-@use "./_object/_utility/only";
-@use "./_object/_utility/text-align";
+@use './_object/_utility/margin';
+@use './_object/_utility/only';
+@use './_object/_utility/text-align';
