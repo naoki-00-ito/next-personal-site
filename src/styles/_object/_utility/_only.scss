@@ -1,0 +1,37 @@
+@use "../../_foundation" as f;
+
+.u-only {
+  &-pc {
+    @include f.mq(max, md) {
+      display: none;
+    }
+  }
+
+  &-pc-tab {
+    display: none;
+    @include f.mq(min, sm) {
+      display: block;
+    }
+  }
+
+  &-tab {
+    display: none;
+    @include f.mq(bw, sm, md) {
+      display: block;
+    }
+  }
+
+  &-sp {
+    display: none;
+    @include f.mq(max, sm) {
+      display: block;
+    }
+  }
+
+  &-tab-sp {
+    display: none;
+    @include f.mq(max, md) {
+      display: block;
+    }
+  }
+}

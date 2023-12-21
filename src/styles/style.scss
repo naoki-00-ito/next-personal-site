@@ -1,0 +1,20 @@
+@charset 'utf-8';
+
+/* foundation */
+@use "./_foundation/reset";
+@use "./_foundation/base";
+
+/* layout */
+@use "./_layout/main";
+
+/* component */
+@use "./_object/_component/button";
+@use "./_object/_component/title";
+
+/* project */
+@use "./_object/_project/hero";
+
+/* utility */
+@use "./_object/_utility/margin";
+@use "./_object/_utility/only";
+@use "./_object/_utility/text-align";

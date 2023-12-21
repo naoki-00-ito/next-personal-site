@@ -1,0 +1,261 @@
+/* mixin */
+
+@use "./variable" as *;
+@use "./media-query" as *;
+
+/****************************************************************/
+/* letter-spacing */
+/****************************************************************/
+// letter-spacing
+@mixin l-spacing($spacing) {
+  letter-spacing: calc($spacing / 1000) + em;
+}
+
+/****************************************************************/
+/* icon font */
+/****************************************************************/
+@mixin icoset($font) {
+  content: "#{$font}";
+  font-family: "icons";
+  position: absolute;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/****************************************************************/
+/* font family */
+/****************************************************************/
+// Roboto
+@mixin robot {
+  font-family: "Roboto", sans-serif;
+}
+
+// Montserrat
+@mixin montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+// Noto Sans JP
+@mixin noto {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+// Hiragino Sans
+@mixin hiragino {
+  font-family: "Hiragino Sans", sans-serif;
+}
+
+/****************************************************************/
+/* コンテンツ幅を保って背景全画面 */
+/****************************************************************/
+@mixin contents-full {
+  margin-left: calc(((100vw - 100%) / 2) * -1);
+  margin-right: calc(((100vw - 100%) / 2) * -1);
+  padding-left: calc((100vw - 100%) / 2);
+  padding-right: calc((100vw - 100%) / 2);
+}
+
+/****************************************************************/
+/* コンテンツ幅を保って左寄せ */
+/****************************************************************/
+@mixin contents-left {
+  margin-left: calc(((100vw - 100%) / 2) * -1);
+  margin-right: calc(((100vw - 100%) / 2) * -1);
+  padding-right: calc((100vw - 100%) / 2);
+}
+
+/****************************************************************/
+/* コンテンツ幅を保って右寄せ */
+/****************************************************************/
+@mixin contents-right {
+  margin-left: calc(((100vw - 100%) / 2) * -1);
+  margin-right: calc(((100vw - 100%) / 2) * -1);
+  padding-left: calc((100vw - 100%) / 2);
+}
+
+/****************************************************************/
+/* コンテンツ幅 */
+/****************************************************************/
+@mixin contents {
+  width: 95%;
+  max-width: $content-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/****************************************************************/
+/* hover effect */
+/****************************************************************/
+// underline black
+@mixin hover-underline {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: $color-black;
+    bottom: -1px;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: 0.3s;
+  }
+
+  &:hover {
+    &::after {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+// underline white
+@mixin hover-underline-white {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: $color-white;
+    bottom: -1px;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: 0.3s;
+  }
+
+  &:hover {
+    &::after {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+/****************************************************************/
+/* margin-responsive */
+/****************************************************************/
+// margin-top
+@mixin margin-responsive($margin) {
+  margin-top: $margin;
+
+  // tablet(PC margin の70%)
+  @include mq(max, md) {
+    margin-top: ($margin * 0.7);
+  }
+  // smartphone(PC margin の50%)
+  @include mq(max, sm) {
+    margin-top: ($margin * 0.5);
+  }
+}
+
+// margin-bottom
+@mixin margin-bottom-responsive($margin) {
+  margin-bottom: $margin;
+
+  // tablet(PC margin の70%)
+  @include mq(max, md) {
+    margin-bottom: ($margin * 0.7);
+  }
+  // smartphone(PC margin の50%)
+  @include mq(max, sm) {
+    margin-bottom: ($margin * 0.5);
+  }
+}
+
+// margin-left
+@mixin margin-left-responsive($margin) {
+  margin-left: $margin;
+
+  // tablet(PC margin の70%)
+  @include mq(max, md) {
+    margin-left: ($margin * 0.7);
+  }
+  // smartphone(PC margin の50%)
+  @include mq(max, sm) {
+    margin-left: ($margin * 0.5);
+  }
+}
+
+// margin-right
+@mixin margin-right-responsive($margin) {
+  margin-right: $margin;
+
+  // tablet(PC margin の70%)
+  @include mq(max, md) {
+    margin-right: ($margin * 0.7);
+  }
+  // smartphone(PC margin の50%)
+  @include mq(max, sm) {
+    margin-right: ($margin * 0.5);
+  }
+}
+
+/****************************************************************/
+/* padding-responsive */
+/****************************************************************/
+// padding-top
+@mixin padding-top-responsive($padding-top) {
+  padding-top: $padding-top;
+
+  // tablet(PC padding の70%)
+  @include mq(max, md) {
+    padding-top: ($padding-top * 0.7);
+  }
+  // smartphone(PC padding の50%)
+  @include mq(max, sm) {
+    padding-top: ($padding-top * 0.5);
+  }
+}
+
+// padding-bottom
+@mixin padding-bottom-responsive($padding-bottom) {
+  padding-bottom: $padding-bottom;
+
+  // tablet(PC padding の70%)
+  @include mq(max, md) {
+    padding-bottom: ($padding-bottom * 0.7);
+  }
+  // smartphone(PC padding の50%)
+  @include mq(max, sm) {
+    padding-bottom: ($padding-bottom * 0.5);
+  }
+}
+
+// padding-left
+@mixin padding-left-responsive($padding-left) {
+  padding-left: $padding-left;
+
+  // tablet(PC padding の70%)
+  @include mq(max, md) {
+    padding-left: ($padding-left * 0.7);
+  }
+  // smartphone(PC padding の50%)
+  @include mq(max, sm) {
+    padding-left: ($padding-left * 0.5);
+  }
+}
+
+// padding-right
+@mixin padding-right-responsive($padding-right) {
+  padding-right: $padding-right;
+
+  // tablet(PC padding の70%)
+  @include mq(max, md) {
+    padding-right: ($padding-right * 0.7);
+  }
+  // smartphone(PC padding の50%)
+  @include mq(max, sm) {
+    padding-right: ($padding-right * 0.5);
+  }
+}
