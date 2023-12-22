@@ -13,7 +13,7 @@
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build-sb": "storybook build",
-    "set-node": "nodebrew use $(cat .node)"
+    "set-node": "nodebrew use $(cat .node-version)"
   },
   "dependencies": {
     "@fortawesome/fontawesome-common-types": "^6.4.2",
